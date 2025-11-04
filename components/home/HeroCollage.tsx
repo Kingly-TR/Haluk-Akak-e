@@ -153,15 +153,26 @@ export default function HeroCollage() {
 
       {/* Central Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        {/* Artist Name with Glitch Effect */}
-        <h1 className="mb-6">
-          <span className="block text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name">
+        {/* Artist Name with Creative Scatter Effect */}
+        <h1 className="mb-12">
+          <span className="block text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name-enhanced">
             {'HALUK AKAKÇE'.split('').map((letter, index) => (
               <span
                 key={index}
-                className="inline-block transition-all duration-200 hover:translate-y-[-4px]"
+                className="inline-block transition-all duration-300 hover:scatter-letter"
                 style={{
                   transitionDelay: `${index * 20}ms`,
+                  '--random-x': `${Math.random() * 20 - 10}px`,
+                  '--random-y': `${Math.random() * 20 - 10}px`,
+                  '--random-rotate': `${Math.random() * 15 - 7.5}deg`,
+                } as React.CSSProperties}
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.style.transform = `translate(var(--random-x), var(--random-y)) rotate(var(--random-rotate)) scale(1.1)`;
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.currentTarget;
+                  target.style.transform = 'translate(0, 0) rotate(0deg) scale(1)';
                 }}
               >
                 {letter === ' ' ? '\u00A0' : letter}
@@ -169,11 +180,6 @@ export default function HeroCollage() {
             ))}
           </span>
         </h1>
-
-        {/* Subtitle */}
-        <p className="text-lg md:text-2xl text-gray-700 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
-          Art at the edge of technology, perception, and the body
-        </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
