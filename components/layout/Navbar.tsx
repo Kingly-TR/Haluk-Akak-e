@@ -39,12 +39,19 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 -mr-3 relative z-50"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-4 relative z-[60] cursor-pointer active:bg-gray-100 rounded-lg transition-colors"
+            onClick={() => {
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
             type="button"
+            style={{ 
+              WebkitTapHighlightColor: 'rgba(0, 0, 0, 0.1)',
+              touchAction: 'manipulation'
+            }}
           >
-            <div className="w-6 h-5 flex flex-col justify-between">
+            <div className="w-6 h-5 flex flex-col justify-between pointer-events-none">
               <span className={`block h-0.5 w-full bg-black transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`block h-0.5 w-full bg-black transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
               <span className={`block h-0.5 w-full bg-black transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -58,12 +65,13 @@ export default function Navbar() {
         <>
           {/* Backdrop */}
           <div 
-            className="md:hidden fixed inset-0 bg-black/20 z-40"
+            className="md:hidden fixed inset-0 bg-black/20 z-[45]"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
+            style={{ touchAction: 'none' }}
           />
           {/* Menu Content */}
-          <div className="md:hidden fixed left-0 right-0 top-20 bottom-0 bg-white z-50 overflow-y-auto shadow-2xl">
+          <div className="md:hidden fixed left-0 right-0 top-20 bottom-0 bg-white z-[55] overflow-y-auto shadow-2xl">
             <div className="px-6 py-8 space-y-6">
               {navLinks.map((link) => (
                 <Link
