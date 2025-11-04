@@ -140,62 +140,26 @@ export default function HeroCollage() {
         ))}
       </div>
 
-      {/* Mobile: Minimal floating tiles - just 3 for clean look */}
+      {/* Mobile: Single artwork background - poster style */}
       <div className="absolute inset-0 lg:hidden">
-        {/* Top Right Tile */}
+        {/* Single featured artwork as blurred background */}
         <div
-          className="absolute top-8 right-4 w-32 h-40 md:w-40 md:h-48"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            clipPath: artTiles[0].clipPath,
-            opacity: 0.3,
+            backgroundImage: `url(${artTiles[0].image})`,
+            filter: 'blur(8px) brightness(1.1)',
+            transform: 'scale(1.1)',
           }}
-        >
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${artTiles[0].image})`,
-            }}
-          />
-        </div>
-        
-        {/* Bottom Left Tile */}
-        <div
-          className="absolute bottom-24 left-4 w-36 h-44 md:w-44 md:h-52"
-          style={{
-            clipPath: artTiles[2].clipPath,
-            opacity: 0.3,
-          }}
-        >
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${artTiles[2].image})`,
-            }}
-          />
-        </div>
-        
-        {/* Center Background Tile - very subtle */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-56 md:w-56 md:h-64"
-          style={{
-            clipPath: artTiles[4].clipPath,
-            opacity: 0.15,
-          }}
-        >
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${artTiles[4].image})`,
-            }}
-          />
-        </div>
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/70" />
       </div>
 
       {/* Central Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-5 md:px-6 max-w-5xl mx-auto">
         {/* Artist Name with Creative Scatter Effect */}
-        <h1 className="mb-8 lg:mb-12">
-          <span className="block text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name-enhanced">
+        <h1 className="mb-4 md:mb-8 lg:mb-12">
+          <span className="block text-[32px] leading-tight md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name-enhanced">
             {'HALUK AKAKÇE'.split('').map((letter, index) => (
               <span
                 key={index}
@@ -221,17 +185,22 @@ export default function HeroCollage() {
           </span>
         </h1>
 
+        {/* Subtitle - Mobile Only */}
+        <p className="text-base md:text-lg leading-relaxed text-gray-800 mb-6 md:mb-0 md:hidden max-w-md mx-auto">
+          Art at the edge of technology, perception, and the body
+        </p>
+
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center items-center max-w-sm md:max-w-none mx-auto">
           <Link
             href="/works"
-            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide text-sm sm:text-base hover:bg-gray-800 transition-all hover:scale-105 shadow-lg"
+            className="w-full md:w-auto px-8 py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide text-base hover:bg-gray-800 transition-all hover:scale-105 shadow-lg min-h-[48px] flex items-center justify-center"
           >
-            Explore Works
+            Explore the Works
           </Link>
           <Link
             href="/shop"
-            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-black text-black rounded-full font-bold uppercase tracking-wide text-sm sm:text-base hover:bg-black hover:text-white transition-all hover:scale-105"
+            className="w-full md:w-auto px-8 py-4 border-2 border-black text-black rounded-full font-bold uppercase tracking-wide text-base hover:bg-black hover:text-white transition-all hover:scale-105 min-h-[48px] flex items-center justify-center"
           >
             Shop New Editions
           </Link>
@@ -239,7 +208,7 @@ export default function HeroCollage() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-sm uppercase tracking-wider text-gray-600">Scroll</span>
           <svg

@@ -52,15 +52,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-6 py-4 space-y-4">
+        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 overflow-y-auto">
+          <div className="px-6 py-8 space-y-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block text-lg font-medium uppercase tracking-wide hover:text-akakce-magenta transition-colors"
+                className="block text-2xl font-bold uppercase tracking-tight hover:text-akakce-orange transition-colors py-3 border-b border-gray-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
