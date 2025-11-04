@@ -155,11 +155,11 @@ export default function HeroCollage() {
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Artist Name with Glitch Effect */}
         <h1 className="mb-6">
-          <span className="block text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tight hero-name">
+          <span className="block text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name">
             {'HALUK AKAKÇE'.split('').map((letter, index) => (
               <span
                 key={index}
-                className="inline-block transition-all duration-200 hover:translate-y-[-4px] hover:text-akakce-magenta"
+                className="inline-block transition-all duration-200 hover:translate-y-[-4px]"
                 style={{
                   transitionDelay: `${index * 20}ms`,
                 }}
