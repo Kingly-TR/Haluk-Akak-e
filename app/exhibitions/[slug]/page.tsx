@@ -12,8 +12,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ExhibitionDetailPage({ params }: { params: { slug: string } }) {
-  const exhibition = exhibitions.find(e => e.slug === params.slug);
+export default async function ExhibitionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const exhibition = exhibitions.find(e => e.slug === slug);
   
   if (!exhibition) {
     notFound();

@@ -13,8 +13,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ArtworkDetailPage({ params }: { params: { slug: string } }) {
-  const artwork = artworks.find(a => a.slug === params.slug);
+export default async function ArtworkDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const artwork = artworks.find(a => a.slug === slug);
   
   if (!artwork) {
     notFound();
