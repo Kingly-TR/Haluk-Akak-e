@@ -75,15 +75,15 @@ export default function Home() {
             
             <div className="space-y-4">
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-akakce-red font-bold text-2xl mb-2">1970</div>
+                <div className="text-akakce-orange font-bold text-2xl mb-2">1970</div>
                 <div className="font-bold mb-1">Born in Ankara, Turkey</div>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-akakce-magenta font-bold text-2xl mb-2">1996</div>
+                <div className="text-akakce-orange font-bold text-2xl mb-2">1996</div>
                 <div className="font-bold mb-1">MFA, School of the Art Institute of Chicago</div>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-akakce-cyan font-bold text-2xl mb-2">2021</div>
+                <div className="text-akakce-orange font-bold text-2xl mb-2">2021</div>
                 <div className="font-bold mb-1">The Sky is the Limit</div>
                 <div className="text-sm text-gray-600">Fremont Street Experience, Las Vegas</div>
               </div>
