@@ -8,11 +8,8 @@ import { products } from '@/data/products';
 import { artworks } from '@/data/artworks';
 
 // TODO: Replace with actual CMS data fetching
-export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
+// Note: generateStaticParams removed due to 'use client' conflict
+// Will implement proper architecture with separate client components later
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = products.find(p => p.slug === params.slug);
