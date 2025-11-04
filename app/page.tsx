@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import HeroCollage from '@/components/home/HeroCollage';
 import AnimatedBackground from '@/components/animations/AnimatedBackground';
 import ShapeDivider from '@/components/animations/ShapeDivider';
 import ArtworkCard from '@/components/ui/ArtworkCard';
@@ -13,43 +13,13 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <AnimatedBackground variant="hero" />
-        
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-            HALUK AKAKÇE
-          </h1>
-          <p className="text-2xl md:text-3xl mb-4 font-light">
-            Art at the edge of technology, perception, and the body
-          </p>
-          <p className="text-lg md:text-xl mb-12 text-gray-700 max-w-3xl mx-auto">
-            Turkish multimedia artist (1970–2023) whose work spans painting, video, and 
-            large-scale installations exploring the intersection of society and technology.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/works" className="btn-primary">
-              Explore the Works
-            </Link>
-            <Link href="/shop" className="btn-secondary">
-              Shop New Editions
-            </Link>
-          </div>
-          
-          <div className="mt-8">
-            <Link href="/licensing" className="text-sm uppercase tracking-wide hover:text-akakce-magenta transition-colors">
-              Licensing & Product Collaborations →
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* New Hero Collage */}
+      <HeroCollage />
 
       <ShapeDivider variant="waves" />
 
       {/* Featured Works */}
-      <section className="section bg-white">
+      <section className="section bg-white pt-32">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-tight">
