@@ -24,11 +24,11 @@ interface ArtTile {
 export default function HeroCollage() {
   const [hoveredTile, setHoveredTile] = useState<number | null>(null);
 
-  // Art tiles with different diagonal/slash shapes
+  // Art tiles with different diagonal/slash shapes - using actual Haluk Akakçe artworks
   const artTiles: ArtTile[] = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800',
+      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800', // Digital Landscape 01
       clipPath: 'polygon(0 8%, 100% 0, 100% 92%, 0 100%)',
       clipPathHover: 'polygon(0 5%, 100% 0, 100% 95%, 0 100%)',
       position: { top: '5%', left: '5%' },
@@ -37,7 +37,7 @@ export default function HeroCollage() {
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800',
+      image: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800', // Cosmic Body
       clipPath: 'polygon(0 0, 100% 12%, 100% 100%, 0 88%)',
       clipPathHover: 'polygon(0 0, 100% 8%, 100% 100%, 0 92%)',
       position: { top: '12%', right: '8%' },
@@ -46,7 +46,7 @@ export default function HeroCollage() {
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=800',
+      image: 'https://images.unsplash.com/photo-1549887534-1541e9326642?w=800', // Perception Series 07
       clipPath: 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)',
       clipPathHover: 'polygon(5% 0, 100% 0, 95% 100%, 0 100%)',
       position: { bottom: '15%', left: '8%' },
@@ -55,7 +55,7 @@ export default function HeroCollage() {
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=800',
+      image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800', // Biomorphic Circuits
       clipPath: 'polygon(0 15%, 100% 0, 100% 85%, 0 100%)',
       clipPathHover: 'polygon(0 10%, 100% 0, 100% 90%, 0 100%)',
       position: { top: '40%', left: '15%' },
@@ -64,7 +64,7 @@ export default function HeroCollage() {
     },
     {
       id: 5,
-      image: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800',
+      image: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800', // The Sky is the Limit
       clipPath: 'polygon(0 0, 90% 10%, 100% 100%, 10% 90%)',
       clipPathHover: 'polygon(0 0, 95% 5%, 100% 100%, 5% 95%)',
       position: { top: '8%', left: '35%' },
@@ -73,7 +73,7 @@ export default function HeroCollage() {
     },
     {
       id: 6,
-      image: 'https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800',
+      image: 'https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=800', // Radiant Networks
       clipPath: 'polygon(15% 0, 100% 8%, 85% 100%, 0 92%)',
       clipPathHover: 'polygon(10% 0, 100% 5%, 90% 100%, 0 95%)',
       position: { bottom: '10%', right: '12%' },
@@ -97,6 +97,15 @@ export default function HeroCollage() {
       position: { bottom: '25%', right: '35%' },
       size: { width: '16vw', height: '20vh' },
       zIndex: 1,
+    },
+    {
+      id: 9,
+      image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800', // Digital Landscape (duplicate for variety)
+      clipPath: 'polygon(12% 0, 100% 5%, 88% 100%, 0 95%)',
+      clipPathHover: 'polygon(8% 0, 100% 3%, 92% 100%, 0 97%)',
+      position: { bottom: '5%', left: '2%' },
+      size: { width: '20vw', height: '24vh' },
+      zIndex: 2,
     },
   ];
 
@@ -133,7 +142,7 @@ export default function HeroCollage() {
 
       {/* Mobile: Simpler grid */}
       <div className="absolute inset-0 lg:hidden grid grid-cols-2 gap-2 p-4">
-        {artTiles.slice(0, 4).map((tile) => (
+        {artTiles.slice(0, 6).map((tile) => (
           <div
             key={tile.id}
             className="relative aspect-square"
