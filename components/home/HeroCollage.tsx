@@ -140,31 +140,62 @@ export default function HeroCollage() {
         ))}
       </div>
 
-      {/* Mobile: Simpler grid */}
-      <div className="absolute inset-0 lg:hidden grid grid-cols-2 gap-2 p-4">
-        {artTiles.slice(0, 6).map((tile) => (
+      {/* Mobile: Minimal floating tiles - just 3 for clean look */}
+      <div className="absolute inset-0 lg:hidden">
+        {/* Top Right Tile */}
+        <div
+          className="absolute top-8 right-4 w-32 h-40 md:w-40 md:h-48"
+          style={{
+            clipPath: artTiles[0].clipPath,
+            opacity: 0.3,
+          }}
+        >
           <div
-            key={tile.id}
-            className="relative aspect-square"
+            className="w-full h-full bg-cover bg-center"
             style={{
-              clipPath: tile.clipPath,
+              backgroundImage: `url(${artTiles[0].image})`,
             }}
-          >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${tile.image})`,
-              }}
-            />
-          </div>
-        ))}
+          />
+        </div>
+        
+        {/* Bottom Left Tile */}
+        <div
+          className="absolute bottom-24 left-4 w-36 h-44 md:w-44 md:h-52"
+          style={{
+            clipPath: artTiles[2].clipPath,
+            opacity: 0.3,
+          }}
+        >
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${artTiles[2].image})`,
+            }}
+          />
+        </div>
+        
+        {/* Center Background Tile - very subtle */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-56 md:w-56 md:h-64"
+          style={{
+            clipPath: artTiles[4].clipPath,
+            opacity: 0.15,
+          }}
+        >
+          <div
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${artTiles[4].image})`,
+            }}
+          />
+        </div>
       </div>
 
       {/* Central Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Artist Name with Creative Scatter Effect */}
-        <h1 className="mb-12">
-          <span className="block text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name-enhanced">
+        <h1 className="mb-8 lg:mb-12">
+          <span className="block text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight hero-name-enhanced">
             {'HALUK AKAKÇE'.split('').map((letter, index) => (
               <span
                 key={index}
@@ -191,16 +222,16 @@ export default function HeroCollage() {
         </h1>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
           <Link
             href="/works"
-            className="px-8 py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide hover:bg-gray-800 transition-all hover:scale-105 shadow-lg"
+            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-black text-white rounded-full font-bold uppercase tracking-wide text-sm sm:text-base hover:bg-gray-800 transition-all hover:scale-105 shadow-lg"
           >
-            Explore the Works
+            Explore Works
           </Link>
           <Link
             href="/shop"
-            className="px-8 py-4 border-2 border-black text-black rounded-full font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-all hover:scale-105"
+            className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-black text-black rounded-full font-bold uppercase tracking-wide text-sm sm:text-base hover:bg-black hover:text-white transition-all hover:scale-105"
           >
             Shop New Editions
           </Link>
@@ -208,7 +239,7 @@ export default function HeroCollage() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block">
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <span className="text-sm uppercase tracking-wider text-gray-600">Scroll</span>
           <svg

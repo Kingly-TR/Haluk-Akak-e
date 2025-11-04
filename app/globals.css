@@ -110,6 +110,19 @@
   backdrop-filter: blur(2px);
 }
 
+/* Mobile: Simpler shadows for better readability */
+@media (max-width: 640px) {
+  .hero-name-enhanced {
+    text-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.85);
+    -webkit-background-clip: text;
+    background-clip: text;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
 /* Scatter letter effect */
 .scatter-letter {
   cursor: pointer;
